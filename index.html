@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO -->
+    <meta name="description" content="Zephania Ouma - Modern Responsive Portfolio Website. BSc IT Graduate, Web Developer.">
+    <meta name="keywords" content="Portfolio, Web Developer, HTML CSS JavaScript, Responsive Website">
+    <meta name="author" content="Zephania Ouma">
+
+    <!-- Open Graph / Social -->
+    <meta property="og:title" content="Zephania Ouma | Portfolio">
+    <meta property="og:description" content="Modern Responsive Portfolio Website. BSc IT Graduate, Web Developer.">
+    <meta property="og:image" content="assets/og-image.svg">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="./">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Favicon -->
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+    <!-- AOS Animation Library -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+
+    <!-- GSAP for micro-interactions -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+    <title>Zephania Ouma | Portfolio</title>
+
+    <link rel="stylesheet" href="css/index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- Preloader -->
+<div id="preloader">
+    <div class="spinner"></div>
+</div>
+
+<!-- Scroll progress bar -->
+<div id="progress"><div id="progress-bar"></div></div>
+
+<header class="header">
+    <nav class="navbar">
+        <img src="assets/logo.svg" alt="Zephania Ouma logo" class="logo">
+
+        <ul class="nav-links">
+            <li><a href="#home" class="nav-item">Home</a></li>
+            <li><a href="#about" class="nav-item">About</a></li>
+            <li><a href="#projects" class="nav-item">Projects</a></li>
+            <li><a href="#contact" class="nav-item">Contact</a></li>
+        </ul>
+
+        <div class="right-controls">
+            <button class="theme-toggle" aria-label="Toggle theme">🌙</button>
+            <div class="menu-toggle">&#9776;</div>
+        </div>
+
+        <div class="header-progress"><div class="header-progress-bar"></div></div>
+    </nav>
+</header>
+
+<div id="circle-menu" class="circle-menu" aria-hidden="true"></div>
+
+<section id="home" class="hero" data-aos="fade-up">
+    <!-- Background Video -->
+    <video class="hero-video" autoplay muted loop playsinline>
+        <source src="assets/hero-bg.mp4" type="video/mp4">
+    </video>
+    
+    <!-- Dark Overlay -->
+    <div class="hero-overlay"></div>
+
+    <!-- Floating Glassmorphism Card -->
+    <div class="hero-card">
+        <div class="card-glow"></div>
+        <div class="hero-content">
+            <!-- Logo Animation Intro (optional) -->
+            <div class="hero-logo-intro">
+                <img src="assets/logo.svg" alt="Logo" class="hero-logo">
+            </div>
+
+            <!-- Bold Animated Name -->
+            <h1 class="hero-name">
+                Zephania <span class="name-glow">Ouma</span>
+            </h1>
+
+            <!-- Typed Role Animation -->
+            <p class="hero-role">
+                <span id="typed-hero"></span>
+            </p>
+
+            <!-- Value Statement -->
+            <p class="hero-tagline">
+                Crafting digital experiences that blend creativity with precision
+            </p>
+
+            <!-- Primary & Secondary CTA -->
+            <div class="hero-ctas">
+                <a href="#projects" class="cta-btn cta-primary">
+                    <span>View Projects</span>
+                    <div class="btn-glow"></div>
+                </a>
+                <a href="#" class="cta-btn cta-secondary">
+                    <span>Download Resume</span>
+                </a>
+            </div>
+
+            <!-- Social Icons -->
+            <div class="hero-socials">
+                <a href="#" class="social-icon" aria-label="GitHub">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-1-2.61c2.2-.26 4.5-1.13 4.5-5.05a3.97 3.97 0 0 0-1-2.61 3.52 3.52 0 0 0-.1-2.61s-1 0-3 1.5a11 11 0 0 0-6 0c-2-1.5-3-1.5-3-1.5a3.5 3.5 0 0 0-.1 2.61 3.93 3.93 0 0 0-1 2.61c0 3.89 2.3 4.78 4.5 5.05a3.35 3.35 0 0 0-1 2.61v3.87"/>
+                    </svg>
+                </a>
+                <a href="#" class="social-icon" aria-label="LinkedIn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/>
+                    </svg>
+                </a>
+                <a href="#" class="social-icon" aria-label="Email">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator">
+        <span>Scroll to explore</span>
+        <svg class="scroll-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+    </div>
+</section>
+
+<section id="about" class="section" data-aos="fade-up">
+    <h2>About Me</h2>
+    <p>I build modern, scalable and responsive web applications.</p>
+</section>
+
+<section id="projects" class="section" data-aos="fade-up">
+    <h2>Projects</h2>
+    <div class="project-grid">
+        <div class="card">Project 1</div>
+        <div class="card">Project 2</div>
+        <div class="card">Project 3</div>
+    </div>
+</section>
+
+<section id="contact" class="section" data-aos="fade-up">
+    <h2>Contact</h2>
+    <p>Email: zephany001@gmail.com</p>
+</section>
+
+<!-- SVG Gooey Filter -->
+<svg style="display:none" width="0" height="0">
+    <defs>
+        <filter id="gooey">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="coloredBlur" />
+            <feMerge>
+                <feMergeNode in="coloredBlur" />
+                <feMergeNode in="SourceGraphic" />
+            </feMerge>
+        </filter>
+    </defs>
+</svg>
+
+<!-- Premium Footer -->
+<footer class="footer">
+    <div class="footer-blob"></div>
+    <div class="footer-particles"></div>
+    <div class="footer-glow"></div>
+
+    <div class="footer-glass">
+        <div class="footer-content">
+            <h2 class="footer-title">Let's Build Something <span class="gradient-text">Amazing</span></h2>
+            <p class="footer-subtitle">Available for collaborations & freelance work</p>
+
+            <div class="footer-socials">
+                <a href="#" class="social-btn" data-label="GitHub">
+                    <span>GitHub</span>
+                </a>
+                <a href="#" class="social-btn" data-label="LinkedIn">
+                    <span>LinkedIn</span>
+                </a>
+                <a href="#" class="social-btn" data-label="Email">
+                    <span>Email</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <p class="copyright">© 2026 Zephania Ouma. All Rights Reserved.</p>
+</footer>
+
+<script src="js/index.js"></script>
+</body>
+</html>

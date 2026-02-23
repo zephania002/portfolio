@@ -23,6 +23,9 @@
     <!-- AOS Animation Library -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
 
+    <!-- Lottie player (loads local assets/avatar.json if present) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.9.6/lottie.min.js"></script>
+
     <!-- GSAP for micro-interactions -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 
@@ -63,97 +66,658 @@
 
 <div id="circle-menu" class="circle-menu" aria-hidden="true"></div>
 
-<section id="home" class="hero" data-aos="fade-up">
-    <!-- Background Video -->
-    <video class="hero-video" autoplay muted loop playsinline>
-        <source src="assets/hero-bg.mp4" type="video/mp4">
+<!-- Glassmorphism Hero Section -->
+<section id="home" class="glass-hero">
+    <!-- Video Background -->
+    <video class="hero-video-bg" autoplay muted loop playsinline preload="auto">
+        <source src="assets/back.mp4" type="video/mp4">
+        Your browser does not support the video tag.
     </video>
-    
-    <!-- Dark Overlay -->
-    <div class="hero-overlay"></div>
 
-    <!-- Floating Glassmorphism Card -->
-    <div class="hero-card">
-        <div class="card-glow"></div>
-        <div class="hero-content">
-            <!-- Logo Animation Intro (optional) -->
-            <div class="hero-logo-intro">
-                <img src="assets/logo.svg" alt="Logo" class="hero-logo">
-            </div>
+    <!-- Animated background gradients -->
+    <div class="hero-bg-wrapper">
+        <div class="hero-bg-gradient"></div>
+        <div class="hero-glow-light hero-glow-1"></div>
+        <div class="hero-glow-light hero-glow-2"></div>
+        <div class="hero-glow-light hero-glow-3"></div>
+    </div>
 
-            <!-- Bold Animated Name -->
-            <h1 class="hero-name">
-                Zephania <span class="name-glow">Ouma</span>
-            </h1>
-
-            <!-- Typed Role Animation -->
-            <p class="hero-role">
-                <span id="typed-hero"></span>
-            </p>
-
-            <!-- Value Statement -->
-            <p class="hero-tagline">
-                Crafting digital experiences that blend creativity with precision
-            </p>
-
-            <!-- Primary & Secondary CTA -->
-            <div class="hero-ctas">
-                <a href="#projects" class="cta-btn cta-primary">
-                    <span>View Projects</span>
-                    <div class="btn-glow"></div>
-                </a>
-                <a href="#" class="cta-btn cta-secondary">
-                    <span>Download Resume</span>
-                </a>
-            </div>
-
-            <!-- Social Icons -->
-            <div class="hero-socials">
-                <a href="#" class="social-icon" aria-label="GitHub">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-1-2.61c2.2-.26 4.5-1.13 4.5-5.05a3.97 3.97 0 0 0-1-2.61 3.52 3.52 0 0 0-.1-2.61s-1 0-3 1.5a11 11 0 0 0-6 0c-2-1.5-3-1.5-3-1.5a3.5 3.5 0 0 0-.1 2.61 3.93 3.93 0 0 0-1 2.61c0 3.89 2.3 4.78 4.5 5.05a3.35 3.35 0 0 0-1 2.61v3.87"/>
-                    </svg>
-                </a>
-                <a href="#" class="social-icon" aria-label="LinkedIn">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/>
-                    </svg>
-                </a>
-                <a href="#" class="social-icon" aria-label="Email">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
-                    </svg>
-                </a>
+    <!-- Glass Card Container -->
+    <div class="glass-card-container">
+        <div class="glass-card">
+            <!-- Glow effect behind text -->
+            <div class="glass-card-glow"></div>
+            
+            <div class="glass-content">
+                <h1 class="glass-title">
+                    <span class="title-word">Zephania</span>
+                    <span class="title-word accent">Ouma</span>
+                </h1>
+                
+                <p class="glass-subtitle">Creative Developer & Digital Craftsman</p>
+                
+                <p class="glass-description">
+                    Building beautiful, functional digital experiences with modern technology and thoughtful design.
+                </p>
+                
+                <a href="#about" class="glass-cta">Explore My Work</a>
             </div>
         </div>
     </div>
 
-    <!-- Scroll Indicator -->
-    <div class="scroll-indicator">
-        <span>Scroll to explore</span>
-        <svg class="scroll-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <polyline points="6 9 12 15 18 9"></polyline>
-        </svg>
+    <!-- Floating accent shapes -->
+    <div class="hero-accent-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
     </div>
 </section>
 
-<section id="about" class="section" data-aos="fade-up">
-    <h2>About Me</h2>
-    <p>I build modern, scalable and responsive web applications.</p>
+<section id="about" class="section about-section" data-aos="fade-up">
+    <div class="about-split">
+        <div class="about-left">
+            <!-- Lottie Avatar (loads assets/avatar.json if available) -->
+            <div class="about-avatar">
+                <div id="lottie-avatar" aria-hidden="false" role="img" aria-label="Animated avatar"></div>
+                <!-- Fallback SVG (used if Lottie not available) -->
+                <div class="avatar-fallback" aria-hidden="true">
+                    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="avatar-svg">
+                        <defs>
+                            <linearGradient id="g1" x1="0" x2="1">
+                                <stop offset="0%" stop-color="#00f5d4"/>
+                                <stop offset="100%" stop-color="#6a00ff"/>
+                            </linearGradient>
+                        </defs>
+                        <g filter="url(#gooey)">
+                            <circle class="blob" cx="60" cy="60" r="36" fill="url(#g1)"></circle>
+                            <circle class="blob" cx="120" cy="80" r="46" fill="#00b894" opacity="0.85"></circle>
+                            <circle class="blob" cx="90" cy="120" r="30" fill="#6a00ff" opacity="0.9"></circle>
+                        </g>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Short counters -->
+            <div class="about-counters">
+                <div class="counter-item">
+                    <div class="count" data-target="34">0</div>
+                    <div class="label">Projects</div>
+                </div>
+                <div class="counter-item">
+                    <div class="count" data-target="4">0</div>
+                    <div class="label">Years Exp</div>
+                </div>
+                <div class="counter-item">
+                    <div class="count" data-target="12">0</div>
+                    <div class="label">Clients</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="about-right">
+            <h2>About Me</h2>
+            <p class="about-intro">I craft modern, maintainable web applications and interfaces with a focus on performance, accessibility and delightful UX. I blend design sensibilities with engineering rigor to solve real problems.</p>
+
+            <!-- Interactive circular skills -->
+            <div class="skills">
+                <div class="skill-circle" data-percent="90" aria-label="JavaScript skill 90 percent" role="img">
+                    <svg viewBox="0 0 100 100" class="skill-svg">
+                        <circle class="skill-bg" cx="50" cy="50" r="44" stroke-width="12" fill="none"/>
+                        <circle class="skill-fg" cx="50" cy="50" r="44" stroke-width="12" fill="none" stroke-linecap="round"/>
+                        <text x="50%" y="54%" text-anchor="middle" class="skill-label">JS</text>
+                    </svg>
+                    <div class="skill-meta"><span>JavaScript</span><span class="skill-percent">90%</span></div>
+                </div>
+
+                <div class="skill-circle" data-percent="85" aria-label="React skill 85 percent" role="img">
+                    <svg viewBox="0 0 100 100" class="skill-svg">
+                        <circle class="skill-bg" cx="50" cy="50" r="44" stroke-width="12" fill="none"/>
+                        <circle class="skill-fg" cx="50" cy="50" r="44" stroke-width="12" fill="none" stroke-linecap="round"/>
+                        <text x="50%" y="54%" text-anchor="middle" class="skill-label">React</text>
+                    </svg>
+                    <div class="skill-meta"><span>React</span><span class="skill-percent">85%</span></div>
+                </div>
+
+                <div class="skill-circle" data-percent="78" aria-label="UI UX skill 78 percent" role="img">
+                    <svg viewBox="0 0 100 100" class="skill-svg">
+                        <circle class="skill-bg" cx="50" cy="50" r="44" stroke-width="12" fill="none"/>
+                        <circle class="skill-fg" cx="50" cy="50" r="44" stroke-width="12" fill="none" stroke-linecap="round"/>
+                        <text x="50%" y="54%" text-anchor="middle" class="skill-label">UI</text>
+                    </svg>
+                    <div class="skill-meta"><span>UI / UX</span><span class="skill-percent">78%</span></div>
+                </div>
+            </div>
+
+            <!-- Timeline -->
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="time">2024</div>
+                    <div class="event">Led front-end for startup product launch</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="time">2022</div>
+                    <div class="event">Graduated BSc IT — focused on web systems</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="time">2020</div>
+                    <div class="event">Built first production SPA</div>
+                </div>
+            </div>
+
+            <!-- Specialties (3D cards) -->
+            <div class="specialties">
+                <div class="spec-card">Design Systems</div>
+                <div class="spec-card">Performance</div>
+                <div class="spec-card">Accessibility</div>
+            </div>
+
+            <blockquote class="about-quote">"I favor clear abstractions, pragmatic simplicity, and interfaces that respect users' time."</blockquote>
+        </div>
+    </div>
 </section>
 
 <section id="projects" class="section" data-aos="fade-up">
     <h2>Projects</h2>
     <div class="project-grid">
-        <div class="card">Project 1</div>
-        <div class="card">Project 2</div>
-        <div class="card">Project 3</div>
+        
+        <!-- Project 1: Hospital Management System -->
+        <div class="project-card">
+            <div class="project-card-header">
+                <h3 class="project-title">Hospital Management System with ML</h3>
+                <p class="project-one-liner">AI-powered hospital operations & patient care management platform</p>
+            </div>
+            <div class="project-tech-badge">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">Node.js</span>
+                <span class="tech-tag">MySQL</span>
+                <span class="tech-tag">ML</span>
+            </div>
+            <div class="project-card-buttons">
+                <a href="#" class="btn-link">Live Demo</a>
+                <a href="#" class="btn-link github">GitHub</a>
+                <button class="btn-expand" aria-label="Expand project details">Details ↓</button>
+            </div>
+            <div class="project-details">
+                <div class="detail-section">
+                    <h4>Project Overview</h4>
+                    <p>A comprehensive hospital management system that integrates patient records, appointments, billing, and ML-powered diagnostics. Designed to streamline operations for small to medium hospitals while providing accurate predictive analytics for patient outcomes and resource allocation.</p>
+                </div>
+                <div class="detail-section">
+                    <h4>Key Features</h4>
+                    <ul>
+                        <li>Patient authentication & role-based access control (Admin, Doctor, Staff, Patient)</li>
+                        <li>Appointment scheduling with automated reminders</li>
+                        <li>Digital medical records & prescription management</li>
+                        <li>ML prediction module for disease risk assessment</li>
+                        <li>Billing & payment integration</li>
+                        <li>Real-time dashboard & analytics</li>
+                    </ul>
+                </div>
+                <div class="detail-section">
+                    <h4>Tech Stack</h4>
+                    <p><strong>Frontend:</strong> React, Tailwind CSS, Chart.js<br>
+                    <strong>Backend:</strong> Node.js, Express<br>
+                    <strong>Database:</strong> MySQL, Redis<br>
+                    <strong>APIs/ML:</strong> TensorFlow, Scikit-learn, SendGrid<br>
+                    <strong>Tools:</strong> Docker, AWS, Git</p>
+                </div>
+                <div class="detail-section">
+                    <h4>My Role</h4>
+                    <p>System architecture design | Backend API development | Database schema modeling | ML model integration | Frontend implementation | DevOps deployment</p>
+                </div>
+                <div class="detail-section">
+                    <h4>Challenges & Solution</h4>
+                    <p><strong>Challenge:</strong> Real-time data synchronization between multiple departments without data loss.<br>
+                    <strong>Solution:</strong> Implemented Redis for caching & event-driven architecture with RabbitMQ for reliable message queuing.</p>
+                </div>
+                <div class="detail-section">
+                    <h4>Results / Impact</h4>
+                    <p>Improved patient admission processing by 60% | Reduced appointment no-shows by 40% | Enabled predictive analytics for 1000+ daily patient interactions</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project 2: Mwalimu Automobile Management -->
+        <div class="project-card">
+            <div class="project-card-header">
+                <h3 class="project-title">Mwalimu Automobile Management System</h3>
+                <p class="project-one-liner">Fleet management & vehicle tracking solution for automobile businesses</p>
+            </div>
+            <div class="project-tech-badge">
+                <span class="tech-tag">React</span>
+                <span class="tech-tag">Firebase</span>
+                <span class="tech-tag">Google Maps API</span>
+                <span class="tech-tag">Node.js</span>
+            </div>
+            <div class="project-card-buttons">
+                <a href="#" class="btn-link">Live Demo</a>
+                <a href="#" class="btn-link github">GitHub</a>
+                <button class="btn-expand" aria-label="Expand project details">Details ↓</button>
+            </div>
+            <div class="project-details">
+                <div class="detail-section">
+                    <h4>Project Overview</h4>
+                    <p>A comprehensive fleet management platform for the Mwalimu automobile sector. Tracks vehicle locations, maintenance schedules, driver performance, fuel consumption, and rental operations in real-time. Designed to reduce operational costs and improve service quality.</p>
+                </div>
+                <div class="detail-section">
+                    <h4>Key Features</h4>
+                    <ul>
+                        <li>Real-time GPS vehicle tracking with live map updates</li>
+                        <li>Maintenance scheduling & alerts</li>
+                        <li>Driver performance monitoring & ratings</li>
+                        <li>Fuel consumption analytics & optimization</li>
+                        <li>Rental booking & payment processing</li>
+                        <li>Automated expense reports & analytics</li>
+                    </ul>
+                </div>
+                <div class="detail-section">
+                    <h4>Tech Stack</h4>
+                    <p><strong>Frontend:</strong> React, Material-UI, Leaflet.js<br>
+                    <strong>Backend:</strong> Node.js, Express<br>
+                    <strong>Database:</strong> Firebase Realtime DB<br>
+                    <strong>APIs:</strong> Google Maps, Stripe Payment API<br>
+                    <strong>Tools:</strong> Git, GitHub, Vercel</p>
+                </div>
+                <div class="detail-section">
+                    <h4>My Role</h4>
+                    <p>Full-stack development | UI/UX implementation | Google Maps integration | Backend API design | Database structure</p>
+                </div>
+                <div class="detail-section">
+                    <h4>Challenges & Solution</h4>
+                    <p><strong>Challenge:</strong> Managing real-time location updates for 50+ vehicles without performance degradation.<br>
+                    <strong>Solution:</strong> Implemented WebSocket connections with efficient data batching and client-side filtering.</p>
+                </div>
+                <div class="detail-section">
+                    <h4>Results / Impact</h4>
+                    <p>Reduced fleet operational costs by 35% | Improved vehicle utilization by 45% | Enabled data-driven decision making for 20+ fleet operators</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project 3: Rusinga School Website -->
+        <div class="project-card">
+            <div class="project-card-header">
+                <h3 class="project-title">Rusinga School Website</h3>
+                <p class="project-one-liner">Modern responsive school portal with enrollment & event management</p>
+            </div>
+            <div class="project-tech-badge">
+                <span class="tech-tag">React</span>
+                <span class="tech-tag">Node.js</span>
+                <span class="tech-tag">MongoDB</span>
+                <span class="tech-tag">Responsive Design</span>
+            </div>
+            <div class="project-card-buttons">
+                <a href="#" class="btn-link">Live Demo</a>
+                <a href="#" class="btn-link github">GitHub</a>
+                <button class="btn-expand" aria-label="Expand project details">Details ↓</button>
+            </div>
+            <div class="project-details">
+                <div class="detail-section">
+                    <h4>Project Overview</h4>
+                    <p>A modern, fully responsive school website featuring student enrollment, event management, academic calendar, and online communication between teachers, parents, and students. Built to make school information accessible 24/7 across all devices.</p>
+                </div>
+                <div class="detail-section">
+                    <h4>Key Features</h4>
+                    <ul>
+                        <li>Student enrollment & registration system</li>
+                        <li>Academic calendar with exam schedules</li>
+                        <li>Event management & announcements</li>
+                        <li>Teacher-Parent communication portal</li>
+                        <li>Student performance dashboard</li>
+                        <li>Mobile-responsive design</li>
+                    </ul>
+                </div>
+                <div class="detail-section">
+                    <h4>Tech Stack</h4>
+                    <p><strong>Frontend:</strong> React, Tailwind CSS, Responsive Design<br>
+                    <strong>Backend:</strong> Node.js, Express<br>
+                    <strong>Database:</strong> MongoDB<br>
+                    <strong>Tools:</strong> Deployment on Heroku & Vercel</p>
+                </div>
+                <div class="detail-section">
+                    <h4>My Role</h4>
+                    <p>Complete UI/UX design | Frontend development | Backend API creation | Database design | Mobile optimization</p>
+                </div>
+                <div class="detail-section">
+                    <h4>Challenges & Solution</h4>
+                    <p><strong>Challenge:</strong> Ensuring accessibility for diverse user groups (students, parents, teachers) with varying tech proficiency.<br>
+                    <strong>Solution:</strong> Implemented intuitive navigation, clear CTAs, and comprehensive help documentation.</p>
+                </div>
+                <div class="detail-section">
+                    <h4>Results / Impact</h4>
+                    <p>Increased school communication efficiency by 70% | Reduced paper usage by 85% | Reached 500+ active users (students, parents, staff)</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project 4: M-Pesa Payment Integration -->
+        <div class="project-card">
+            <div class="project-card-header">
+                <h3 class="project-title">M-Pesa Payment Integration System</h3>
+                <p class="project-one-liner">Secure mobile payment gateway for e-commerce & service businesses</p>
+            </div>
+            <div class="project-tech-badge">
+                <span class="tech-tag">Node.js</span>
+                <span class="tech-tag">M-Pesa API</span>
+                <span class="tech-tag">MySQL</span>
+                <span class="tech-tag">Security</span>
+            </div>
+            <div class="project-card-buttons">
+                <a href="#" class="btn-link">Live Demo</a>
+                <a href="#" class="btn-link github">GitHub</a>
+                <button class="btn-expand" aria-label="Expand project details">Details ↓</button>
+            </div>
+            <div class="project-details">
+                <div class="detail-section">
+                    <h4>Project Overview</h4>
+                    <p>A robust payment integration platform that enables secure M-Pesa transactions for local businesses. Handles payment processing, transaction verification, error handling, and detailed reporting. Deployed across multiple e-commerce and service businesses in East Africa.</p>
+                </div>
+                <div class="detail-section">
+                    <h4>Key Features</h4>
+                    <ul>
+                        <li>M-Pesa STK Push & C2B payment processing</li>
+                        <li>Secure transaction verification & validation</li>
+                        <li>Real-time payment status updates</li>
+                        <li>Transaction history & detailed reports</li>
+                        <li>Automated reconciliation & settlement</li>
+                        <li>Multiple currency support & conversion</li>
+                    </ul>
+                </div>
+                <div class="detail-section">
+                    <h4>Tech Stack</h4>
+                    <p><strong>Backend:</strong> Node.js, Express<br>
+                    <strong>Database:</strong> MySQL with transaction logs<br>
+                    <strong>APIs:</strong> Safaricom M-Pesa API<br>
+                    <strong>Security:</strong> SSL/TLS, OAuth 2.0, Data Encryption<br>
+                    <strong>Tools:</strong> Docker, CI/CD Pipeline</p>
+                </div>
+                <div class="detail-section">
+                    <h4>My Role</h4>
+                    <p>M-Pesa API integration | Backend architecture | Payment flow design | Security implementation | Testing & QA</p>
+                </div>
+                <div class="detail-section">
+                    <h4>Challenges & Solution</h4>
+                    <p><strong>Challenge:</strong> Handling payment timeout & network failures without losing transaction data.<br>
+                    <strong>Solution:</strong> Implemented robust retry mechanisms, webhook callbacks, and transactional database logging.</p>
+                </div>
+                <div class="detail-section">
+                    <h4>Results / Impact</h4>
+                    <p>Processed 50,000+ transactions worth millions in local currency | 99.8% payment success rate | Enabled 100+ small businesses to accept mobile payments</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project 5: Online Food Ordering System -->
+        <div class="project-card">
+            <div class="project-card-header">
+                <h3 class="project-title">Online Food Ordering System</h3>
+                <p class="project-one-liner">Full-stack food delivery platform with real-time order tracking</p>
+            </div>
+            <div class="project-tech-badge">
+                <span class="tech-tag">React</span>
+                <span class="tech-tag">Node.js</span>
+                <span class="tech-tag">PostgreSQL</span>
+                <span class="tech-tag">Google Maps</span>
+            </div>
+            <div class="project-card-buttons">
+                <a href="#" class="btn-link">Live Demo</a>
+                <a href="#" class="btn-link github">GitHub</a>
+                <button class="btn-expand" aria-label="Expand project details">Details ↓</button>
+            </div>
+            <div class="project-details">
+                <div class="detail-section">
+                    <h4>Project Overview</h4>
+                    <p>A comprehensive food ordering & delivery platform connecting restaurants with customers. Features real-time order tracking, delivery route optimization, and integrated payment system. Designed for scalability to handle 1000+ daily orders across multiple restaurants.</p>
+                </div>
+                <div class="detail-section">
+                    <h4>Key Features</h4>
+                    <ul>
+                        <li>Restaurant & menu management dashboards</li>
+                        <li>Advanced food filtering & search</li>
+                        <li>Shopping cart with custom items</li>
+                        <li>Real-time order tracking with live updates</li>
+                        <li>Integrated payment gateway (M-Pesa, Card)</li>
+                        <li>Driver management & route optimization</li>
+                        <li>Customer reviews & ratings</li>
+                    </ul>
+                </div>
+                <div class="detail-section">
+                    <h4>Tech Stack</h4>
+                    <p><strong>Frontend:</strong> React, Redux, Google Maps API<br>
+                    <strong>Backend:</strong> Node.js, Express, Socket.io<br>
+                    <strong>Database:</strong> PostgreSQL with Redis caching<br>
+                    <strong>APIs:</strong> Google Maps, Payment Gateways<br>
+                    <strong>Tools:</strong> Docker, AWS deployment</p>
+                </div>
+                <div class="detail-section">
+                    <h4>My Role</h4>
+                    <p>Full-stack development | Real-time features implementation | Database optimization | Payment integration | UI/UX design | Performance tuning</p>
+                </div>
+                <div class="detail-section">
+                    <h4>Challenges & Solution</h4>
+                    <p><strong>Challenge:</strong> Optimizing delivery routes for multiple drivers serving concurrent orders.<br>
+                    <strong>Solution:</strong> Implemented intelligent route optimization algorithm using Google Maps distance matrix and ML clustering.</p>
+                </div>
+                <div class="detail-section">
+                    <h4>Results / Impact</h4>
+                    <p>Handled 5000+ monthly orders | Reduced average delivery time by 35% | Achieved 98% customer satisfaction</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project 6: Lost and Found Management -->
+        <div class="project-card">
+            <div class="project-card-header">
+                <h3 class="project-title">Lost and Found Management System</h3>
+                <p class="project-one-liner">Community platform for lost & found item management with geolocation</p>
+            </div>
+            <div class="project-tech-badge">
+                <span class="tech-tag">React Native</span>
+                <span class="tech-tag">Firebase</span>
+                <span class="tech-tag">Geolocation</span>
+                <span class="tech-tag">Chat Integration</span>
+            </div>
+            <div class="project-card-buttons">
+                <a href="#" class="btn-link">Live Demo</a>
+                <a href="#" class="btn-link github">GitHub</a>
+                <button class="btn-expand" aria-label="Expand project details">Details ↓</button>
+            </div>
+            <div class="project-details">
+                <div class="detail-section">
+                    <h4>Project Overview</h4>
+                    <p>A mobile-first platform connecting people who have lost items with those who found them. Uses geolocation to help users find nearby lost items and connects them through in-app messaging. Built for schools, communities, and public spaces.</p>
+                </div>
+                <div class="detail-section">
+                    <h4>Key Features</h4>
+                    <ul>
+                        <li>Post lost or found items with photos</li>
+                        <li>Geolocation-based item discovery</li>
+                        <li>In-app messaging between users</li>
+                        <li>Item categorization & advanced search</li>
+                        <li>User verification & rating system</li>
+                        <li>Push notifications for new matches</li>
+                        <li>Mobile-optimized UI</li>
+                    </ul>
+                </div>
+                <div class="detail-section">
+                    <h4>Tech Stack</h4>
+                    <p><strong>Frontend:</strong> React Native, Expo<br>
+                    <strong>Backend:</strong> Firebase (Realtime DB, Cloud Functions)<br>
+                    <strong>APIs:</strong> Google Maps Geolocation<br>
+                    <strong>Tools:</strong> Firebase Cloud Messaging for notifications</p>
+                </div>
+                <div class="detail-section">
+                    <h4>My Role</h4>
+                    <p>Mobile app development | Geolocation feature implementation | Backend integration | UI/UX design | App store deployment</p>
+                </div>
+                <div class="detail-section">
+                    <h4>Challenges & Solution</h4>
+                    <p><strong>Challenge:</strong> Providing accurate geolocation-based matching while respecting user privacy.<br>
+                    <strong>Solution:</strong> Implemented location radius-based search with user consent controls and optional precision adjustments.</p>
+                </div>
+                <div class="detail-section">
+                    <h4>Results / Impact</h4>
+                    <p>Connected 300+ lost items with their owners | 65% successful item recovery rate | Active community of 2000+ users in 5 schools</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project 7: Medical Mobile/Web Application -->
+        <div class="project-card">
+            <div class="project-card-header">
+                <h3 class="project-title">Medical Mobile/Web Application</h3>
+                <p class="project-one-liner">Comprehensive health management app with telemedicine capabilities</p>
+            </div>
+            <div class="project-tech-badge">
+                <span class="tech-tag">React</span>
+                <span class="tech-tag">React Native</span>
+                <span class="tech-tag">Firebase</span>
+                <span class="tech-tag">Video Consultation</span>
+            </div>
+            <div class="project-card-buttons">
+                <a href="#" class="btn-link">Live Demo</a>
+                <a href="#" class="btn-link github">GitHub</a>
+                <button class="btn-expand" aria-label="Expand project details">Details ↓</button>
+            </div>
+            <div class="project-details">
+                <div class="detail-section">
+                    <h4>Project Overview</h4>
+                    <p>A cross-platform healthcare application enabling patients to book consultations, access medical records, receive prescriptions, and connect with doctors via telemedicine. Built with HIPAA compliance in mind for secure health data handling.</p>
+                </div>
+                <div class="detail-section">
+                    <h4>Key Features</h4>
+                    <ul>
+                        <li>Doctor & appointment booking system</li>
+                        <li>Live video telemedicine consultations</li>
+                        <li>Electronic health records (EHR) access</li>
+                        <li>Digital prescription management</li>
+                        <li>Medication reminders & health tracking</li>
+                        <li>Secure messaging between doctors & patients</li>
+                        <li>Health insurance integration</li>
+                    </ul>
+                </div>
+                <div class="detail-section">
+                    <h4>Tech Stack</h4>
+                    <p><strong>Frontend:</strong> React, React Native, Tailwind<br>
+                    <strong>Backend:</strong> Node.js, Express<br>
+                    <strong>Database:</strong> Firebase Firestore with encryption<br>
+                    <strong>APIs:</strong> Twilio for video consultations, SendGrid<br>
+                    <strong>Tools:</strong> Firebase, JWT authentication</p>
+                </div>
+                <div class="detail-section">
+                    <h4>My Role</h4>
+                    <p>Full-stack development | Video consultation integration | Health data encryption | Telemedicine UI implementation | iOS & Android deployment</p>
+                </div>
+                <div class="detail-section">
+                    <h4>Challenges & Solution</h4>
+                    <p><strong>Challenge:</strong> Ensuring real-time video quality across different network conditions and maintaining HIPAA compliance.<br>
+                    <strong>Solution:</strong> Implemented adaptive bitrate streaming with Twilio and end-to-end encryption for patient data.</p>
+                </div>
+                <div class="detail-section">
+                    <h4>Results / Impact</h4>
+                    <p>Enabled 1000+ patients to access healthcare remotely | Reduced appointment wait times by 50% | Achieved 95% app store rating</p>
+                </div>
+            </div>
+        </div>
+
     </div>
 </section>
 
-<section id="contact" class="section" data-aos="fade-up">
-    <h2>Contact</h2>
-    <p>Email: zephany001@gmail.com</p>
+
+
+<!-- ====== DEVELOPER TERMINAL CONTACT SECTION ====== -->
+<section id="contact" class="section terminal-contact-section" data-aos="fade-up">
+    <div class="terminal-contact-wrapper">
+        <!-- Section Header -->
+        <div class="contact-intro">
+            <h2>Let's Connect</h2>
+            <p>Send me a message using the terminal below</p>
+        </div>
+
+        <!-- Terminal Window -->
+        <div class="dev-terminal">
+            <!-- Terminal Header with Control Buttons -->
+            <div class="terminal-header-custom">
+                <div class="terminal-controls">
+                    <span class="control-btn close"></span>
+                    <span class="control-btn minimize"></span>
+                    <span class="control-btn maximize"></span>
+                </div>
+                <div class="terminal-path">zephania@portfolio:~/contact</div>
+            </div>
+
+            <!-- Terminal Body -->
+            <div class="terminal-screen">
+                <!-- Welcome Message -->
+                <div class="terminal-output">
+                    <span class="prompt">➜</span> <span class="command">contact --help</span>
+                </div>
+                <div class="terminal-output help-text">
+                    Send a message to connect with me. Use the form below.
+                </div>
+                <div class="terminal-output empty-line"></div>
+
+                <!-- Contact Form -->
+                <form id="devTerminalForm" class="dev-form">
+                    <!-- Name Input -->
+                    <div class="form-line">
+                        <span class="prompt">➜</span>
+                        <span class="input-label">name</span>
+                        <input 
+                            type="text" 
+                            id="devName" 
+                            name="name"
+                            class="dev-input" 
+                            placeholder="John Doe"
+                            aria-label="Your name"
+                            required
+                        >
+                    </div>
+
+                    <!-- Email Input -->
+                    <div class="form-line">
+                        <span class="prompt">➜</span>
+                        <span class="input-label">email</span>
+                        <input 
+                            type="email" 
+                            id="devEmail" 
+                            name="email"
+                            class="dev-input" 
+                            placeholder="hello@example.com"
+                            aria-label="Your email address"
+                            required
+                        >
+                    </div>
+
+                    <!-- Message Textarea -->
+                    <div class="form-line message-line">
+                        <span class="prompt">➜</span>
+                        <span class="input-label">message</span>
+                        <textarea 
+                            id="devMessage" 
+                            name="message"
+                            class="dev-input dev-textarea" 
+                            placeholder="Type your message..."
+                            aria-label="Your message"
+                            rows="4"
+                            required
+                        ></textarea>
+                    </div>
+
+                    <!-- Submit Button with Cursor -->
+                    <div class="form-line submit-line">
+                        <span class="prompt">➜</span>
+                        <button type="submit" class="dev-submit">
+                            send --message
+                            <span class="blinking-cursor"></span>
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Feedback Output -->
+                <div id="devFeedback" class="terminal-feedback-output"></div>
+            </div>
+        </div>
+    </div>
 </section>
 
 <!-- SVG Gooey Filter -->

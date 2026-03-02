@@ -1,24 +1,30 @@
 const menuToggle = document.querySelector(".menu-toggle");
 const navLinks = document.querySelector(".nav-links");
-const circleMenu = document.getElementById('circle-menu');
+const navItems = document.querySelectorAll(".nav-links a");
 const headerProgressBar = document.querySelector('.header-progress-bar');
 
+// Toggle menu on button click
 if(menuToggle){
     menuToggle.addEventListener("click", () => {
-        const opening = !navLinks.classList.contains('active');
         navLinks.classList.toggle("active");
-        // animate expanding circular menu with GSAP when available
-        if(window.gsap && circleMenu){
-            if(opening){
-                gsap.set(circleMenu, { transformOrigin: '50% 50%', scale: 0, autoAlpha: 1 });
-                gsap.to(circleMenu, { scale: 30, duration: 0.7, ease: 'power4.out' });
-                gsap.from('.nav-links li', { y: 20, opacity: 0, stagger: 0.06, duration: 0.45, ease: 'power3.out' });
-            } else {
-                gsap.to(circleMenu, { scale: 0, duration: 0.5, ease: 'power3.in' });
-            }
-        }
     });
 }
+
+// Close menu when a nav item is clicked
+navItems.forEach(item => {
+    item.addEventListener("click", () => {
+        navLinks.classList.remove("active");
+    });
+});
+
+// Close menu when clicking outside of it
+document.addEventListener("click", (e) => {
+    const header = document.querySelector(".header");
+    const isClickInsideMenu = navLinks.contains(e.target) || menuToggle.contains(e.target);
+    if (!isClickInsideMenu && navLinks.classList.contains("active")) {
+        navLinks.classList.remove("active");
+    }
+});
 
 // Fade in on scroll (progressively handled by AOS too)
 const sections = document.querySelectorAll(".section");

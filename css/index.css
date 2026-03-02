@@ -455,6 +455,9 @@ body.dark{
 /* Right controls */
 .right-controls{ display:flex; align-items:center; gap:20px }
 
+/* Hide menu toggle on desktop */
+.menu-toggle { display: none; cursor: pointer; font-size: 22px; }
+
 .nav-links {
     list-style: none;
     display: flex;
@@ -472,6 +475,53 @@ body.dark{
 .nav-links a {
     text-decoration: none;
     color: white;
+}
+
+/* Mobile dropdown menu styles */
+@media (max-width: 1024px) {
+    .menu-toggle { display: block; }
+    
+    .nav-links {
+        position: fixed;
+        top: 100px;
+        right: -100%;
+        flex-direction: column;
+        background: rgba(0, 0, 0, 0.98);
+        width: 280px;
+        padding: 40px;
+        border-radius: 20px;
+        border: 1px solid rgba(0, 245, 212, 0.2);
+        backdrop-filter: blur(15px);
+        transition: right 0.4s cubic-bezier(0.22, 0.9, 0.23, 1);
+        z-index: 999;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+        gap: 20px;
+    }
+    
+    .nav-links.active {
+        right: 20px;
+    }
+    
+    .nav-links li {
+        margin-left: 0;
+    }
+    
+    .nav-links li a {
+        display: block;
+        padding: 12px 0;
+        font-size: 1rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        transition: all 0.3s ease;
+    }
+    
+    .nav-links li:last-child a {
+        border-bottom: none;
+    }
+    
+    .nav-links li a:hover {
+        color: var(--accent);
+        padding-left: 10px;
+    }
 }
 
 /* Hero section removed */
@@ -1362,22 +1412,6 @@ body.dark{
     }
 }
 
-
-        position: fixed;
-        top: 100px;
-        right: -100%;
-        flex-direction: column;
-        background: rgba(0,0,0,0.95);
-        width: 250px;
-        padding: 40px;
-        border-radius: 20px;
-        transition: 0.4s ease;
-    }
-
-    .nav-links.active { right: 20px; }
-
-    .menu-toggle { display: block; font-size:22px; cursor:pointer }
-
     .logo { width:44px; height:44px }
 }
 
@@ -1394,7 +1428,7 @@ body.dark{
 .header-progress-bar{ height:100%; width:0; background: linear-gradient(90deg,var(--accent), #6a00ff); box-shadow:0 6px 18px rgba(0,245,212,0.12); transition:width 0.15s linear }
 
 /* Expanding circular menu */
-.circle-menu{ position:fixed; top:22px; right:28px; width:44px; height:44px; background: radial-gradient(circle at 30% 30%, rgba(0,245,212,0.95), rgba(106,0,255,0.9)); border-radius:50%; z-index:9998; transform:scale(0); pointer-events:none }
+.circle-menu{ position:fixed; top:22px; right:28px; width:44px; height:44px; background: radial-gradient(circle at 30% 30%, rgba(0,245,212,0.15), rgba(106,0,255,0.1)); border-radius:50%; z-index:9998; transform:scale(0); pointer-events:none }
 
 
 /* Custom cursor */

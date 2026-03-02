@@ -26,22 +26,10 @@ document.addEventListener("click", (e) => {
     }
 });
 
-// Fade in on scroll (progressively handled by AOS too)
-const sections = document.querySelectorAll(".section");
-sections.forEach(sec => {
-    sec.style.opacity = 0;
-    sec.style.transform = "translateY(40px)";
-    sec.style.transition = "all 0.6s ease";
-});
+// Scroll animation for sections is now handled by AOS library
+// Remove this complex fade-in logic and rely on AOS
 
 window.addEventListener("scroll", () => {
-    sections.forEach(sec => {
-        const top = sec.getBoundingClientRect().top;
-        if(top < window.innerHeight - 100){
-            sec.style.opacity = "1";
-            sec.style.transform = "translateY(0)";
-        }
-    });
     // progress bar
     const scrollTop = window.scrollY || window.pageYOffset;
     const docHeight = document.documentElement.scrollHeight - window.innerHeight;
@@ -52,14 +40,12 @@ window.addEventListener("scroll", () => {
     if(headerProgressBar) headerProgressBar.style.width = pct + '%';
 });
 
-// Trigger a scroll event once on load to reveal any sections
-// that may already be in view (e.g., when navigating to an anchor).
-window.dispatchEvent(new Event('scroll'));
-
-// AOS init (if loaded)
-if(window.AOS){
-    AOS.init({ once: true, duration: 900, easing: 'ease-out-cubic' });
-}
+// AOS init (if loaded) - wrap in DOMContentLoaded to ensure DOM is ready
+document.addEventListener('DOMContentLoaded', () => {
+    if(window.AOS){
+        AOS.init({ once: true, duration: 900, easing: 'ease-out-cubic' });
+    }
+});
 
 
 
@@ -101,71 +87,63 @@ function initGlassHero(){
     const glassCard = document.querySelector('.glass-card');
     const videoElement = document.querySelector('.hero-video-bg');
     
-    if(!heroSection) return;
+    if(devForm) {
+        devForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
 
-    // Ensure video plays (handle autoplay policies)
-    if(videoElement){
-        const playPromise = videoElement.play();
-        if(playPromise !== undefined){
-            playPromise.catch(error => {
-                console.log('Video autoplay failed:', error);
-                videoElement.play();
-            });
-        }
-    }
+            const name = document.getElementById('devName').value.trim();
+            const email = document.getElementById('devEmail').value.trim();
+            const message = document.getElementById('devMessage').value.trim();
 
-    // Mouse tracking for subtle light gradient effect
-    document.addEventListener('mousemove', (e) => {
-        const x = e.clientX;
-        const y = e.clientY;
-        
-        glassGlows.forEach((glow, index) => {
-            const moveX = (x / window.innerWidth) * 30 - 15;
-            const moveY = (y / window.innerHeight) * 30 - 15;
-            
-            if(window.gsap){
-                gsap.to(glow, {
-                    x: moveX * (index + 1) * 0.3,
-                    y: moveY * (index + 1) * 0.3,
-                    duration: 0.8,
-                    ease: 'power2.out'
-                });
+            // Clear previous feedback
+            feedback.className = '';
+            feedback.textContent = '';
+
+            // Validation
+            if(!name || !email || !message) {
+                showDevFeedback('error', '✗ error: all fields are required');
+                return;
             }
-        });
-    });
-    
-    // Subtle card tilt effect on mouse move (if GSAP available)
-    if(glassCard && window.gsap){
-        document.addEventListener('mousemove', (e) => {
-            const rect = glassCard.getBoundingClientRect();
-            const x = e.clientX - rect.left - rect.width / 2;
-            const y = e.clientY - rect.top - rect.height / 2;
-            
-            const rotX = (y / rect.height) * 1.5;
-            const rotY = (x / rect.width) * 1.5;
-            
-            gsap.to(glassCard, {
-                rotationX: rotX,
-                rotationY: rotY,
-                duration: 0.5,
-                ease: 'power2.out'
-            });
-        });
-        
-        document.addEventListener('mouseleave', () => {
-            gsap.to(glassCard, {
-                rotationX: 0,
-                rotationY: 0,
-                duration: 1.2,
-                ease: 'power3.out'
-            });
+
+            if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                showDevFeedback('error', '✗ error: invalid email format');
+                return;
+            }
+
+            // Show success message
+            showDevFeedback('success', '✓ message sent successfully!');
+
+            // Animate form reset
+            if(window.gsap) {
+                gsap.to(devForm, {
+                    opacity: 0.6,
+                    duration: 0.3,
+                    onComplete: () => {
+                        devForm.reset();
+                        gsap.to(devForm, { opacity: 1, duration: 0.3 });
+                    }
+                });
+            } else {
+                devForm.reset();
+            }
+
+            // Clear feedback after 4 seconds
+            setTimeout(() => {
+                feedback.classList.remove('show', 'success', 'error');
+                feedback.textContent = '';
+            }, 4000);
         });
     }
+
 }
 
+function showDevFeedback(type, message) {
+    const feedback = document.getElementById('devFeedback');
+    feedback.textContent = message;
+    feedback.className = `terminal-feedback-output show ${type}`;
+}
 
-
-// Custom cursor (DOM elements already appended earlier)
+// ===== PROJECT EXPAND/COLLAPSE FUNCTIONALITY =====
 const cursor = document.createElement('div');
 cursor.className = 'cursor';
 const follower = document.createElement('div');
